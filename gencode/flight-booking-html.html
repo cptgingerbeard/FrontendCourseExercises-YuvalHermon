@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>OnoAir - הזמנת טיסה</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 id="home-title">OnoAir</h1>
+    </header>
+
+    <main>
+        <h2>טופס הזמנת טיסה</h2>
+        
+        <div id="flight-details">
+            <!-- Flight details will be populated dynamically -->
+        </div>
+
+        <form id="booking-form">
+            <div class="passengers-container">
+                <h3>פרטי נוסעים</h3>
+                <div class="passenger-count">
+                    <label for="passengers-count">מספר נוסעים:</label>
+                    <input type="number" id="passengers-count" min="1" max="10" value="1" onchange="validateAndUpdatePassengerFields()">
+                </div>
+
+                <div id="passengers-fields">
+                    <!-- Passenger fields will be dynamically generated -->
+                </div>
+            </div>
+
+            <button type="button" id="submit-button" class="submit-button">אשר הזמנה</button>
+        </form>
+    </main>
+
+    <footer>
+        <div class="help-icon" onclick="navigateToHelp()">
+            <span>?</span>
+        </div>
+    </footer>
+
+    <script src="main-js.js"></script>
+    <script src="flight-booking-js.js"></script>
+    <script>
+      document.getElementById('home-title').addEventListener('click', navigateToHome);
+      document.getElementById('submit-button').addEventListener('click', submitBooking);
+
+      function validateAndUpdatePassengerFields() {
+          const input = document.getElementById('passengers-count');
+          let value = parseInt(input.value, 10);
+          
+          if (isNaN(value) || value < 1 || value > 10) {
+              alert('Please enter a valid number of passengers between 1 and 10.');
+              input.value = 1; // Reset to default value
+          } else {
+              updatePassengerFields();
+          }
+      }
+    </script>
+</body>
+</html>

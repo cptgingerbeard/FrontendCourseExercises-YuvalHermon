@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnoAir - ניהול יעדים</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 onclick="navigateToHome()">OnoAir</h1>
+    </header>
+
+    <main>
+        <h2>ניהול יעדי טיסה</h2>
+        
+        <div class="destinations-table">
+            <table id="destinations-table">
+                <thead>
+                    <tr>
+                        <th>שם יעד</th>
+                        <th>קוד יעד</th>
+                        <th>שם שדה תעופה</th>
+                    </tr>
+                </thead>
+                <tbody id="destinations-list">
+                    <!-- Destinations will be populated dynamically -->
+                </tbody>
+            </table>
+        </div>
+
+        <form id="destination-form">
+            <h3>הוספת יעד חדש</h3>
+            <div class="form-group">
+                <label>שם יעד:</label>
+                <input type="text" id="destination-name" required>
+            </div>
+            <div class="form-group">
+                <label>קוד יעד:</label>
+                <input type="text" id="destination-code" maxlength="3" required>
+            </div>
+            <div class="form-group">
+                <label>שם שדה תעופה:</label>
+                <input type="text" id="airport-name" required>
+            </div>
+            <button type="button" onclick="addDestination()">הוסף יעד</button>
+        </form>
+    </main>
+
+    <footer>
+        <div class="help-icon" onclick="navigateToHelp()">
+            <span>?</span>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="destinations-management.js"></script>
+</body>
+</html>
