@@ -4,33 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OnoAir - Book Your Journey</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self';">
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">OnoAir</div>
-            <div class="nav-links">
-                <a href="#" onclick="toggleAdminPanel()">Admin</a>
+    <header>
+        <nav role="navigation" aria-label="Main Navigation">
+            <div class="nav-container">
+                <div class="logo">OnoAir</div>
+                <div class="nav-links">
+                    <a href="#" onclick="toggleAdminPanel()" aria-controls="adminPanel" aria-expanded="false">Admin</a>
+                </div>
             </div>
-        </div>
-    </nav>
-    <div id="adminPanel" class="admin-panel">
+        </nav>
+    </header>
+    <div id="adminPanel" class="admin-panel" role="region" aria-labelledby="adminPanelLabel">
+        <span id="adminPanelLabel" class="visually-hidden">Admin Panel</span>
         <a href="#manage-flights">Manage Flights</a>
         <a href="#manage-destinations">Manage Destinations</a>
     </div>
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Your Journey Begins Here</h1>
-            <a href="#book" class="cta-button">Book Now</a>
-            <a href="#manage" class="cta-button">Manage Booking</a>
+    <main>
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Your Journey Begins Here</h1>
+                <a href="#book" class="cta-button">Book Now</a>
+                <a href="#manage" class="cta-button">Manage Booking</a>
+            </div>
         </div>
-    </div>
-    <script>
-        function toggleAdminPanel() {
-            const adminPanel = document.getElementById('adminPanel');
-            adminPanel.style.display = adminPanel.style.display === 'none' ? 'block' : 'none';
-        }
-    </script>
+    </main>
+    <!-- Link to external JavaScript file -->
+    <script src="scripts.js"></script>
 </body>
+</html>
 </html>
